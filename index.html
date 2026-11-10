@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Juegoslan</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: transparent;
+            color: #FFFFFF;
+            overflow: hidden; /* Evita barras de desplazamiento en el xatframe */
+        }
+
+        * {
+            text-decoration: none !important;
+        }
+
+        /* Panel flotante */
+        #com {
+            position: fixed;
+            background: #4270A8;
+            height: 105px; /* Altura ajustada para el reproductor y los enlaces */
+            width: 320px;
+            right: 0;
+            top: -85px; /* Oculto arriba, se muestra al pasar el ratón */
+            border-radius: 0 0 16px 16px;
+            transition: .5s;
+            text-align: center;
+            box-sizing: border-box;
+            padding-top: 10px;
+            z-index: 9999;
+        }
+
+        #com:hover {
+            top: 0;
+        }
+
+        /* Pestaña "Settings & Music" */
+        #com:after {
+            content: 'Settings & Music';
+            position: absolute;
+            width: 320px;
+            height: 20px;
+            background: linear-gradient(to bottom, #4270A8 0%, #2C4A6E 100%);
+            left: 0;
+            top: 105px; /* Se ajusta a la nueva altura del panel */
+            border-radius: 0 0 16px 16px;
+            font: 14px Courier, monospace;
+            color: #FFF;
+            line-height: 20px;
+            pointer-events: none;
+        }
+
+        /* Reproductor de Audio */
+        audio {
+            width: 85%;
+            margin: 5px auto;
+            display: block;
+            outline: none;
+        }
+
+        /* Efecto de los enlaces (Facebook y Reglas) */
+        #rules {
+            display: inline-block;
+            z-index: 1;
+            position: relative;
+            font: 1.2em 'Trebuchet MS', Arial, sans-serif;
+            color: transparent;
+            transition: .5s;
+            text-shadow: 0 1em 0 transparent, 0 -1em 0 transparent, 2.5em 0 0 transparent, -2.5em 0 0 transparent, 0 0 0 #000;
+        }
+
+        #rules:hover {
+            text-shadow: 0 0 0 rgba(255,255,255,.25), 0 0 0 rgba(255,255,255,.25), 0 0 0 rgba(255,255,255,.25), 0 0 0 rgba(255,255,255,.25), 0 0 0 #FFF;
+        }
+        
+        /* Contenedor de los enlaces para dar espacio */
+        .links-container {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Panel con Radio y Enlaces -->
+    <div id="com">
+        <!-- Reproductor (Reemplaza al viejo Flash) -->
+        <audio controls autoplay>
+            <source src="http://192.99.14.225:9862/;s.mp3" type="audio/mpeg">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+        
+        <!-- Enlaces con su efecto -->
+        <div class="links-container">
+            <a href="http://www.facebook.com/groups/juegoslanx" target="_blank"><span id="rules">Facebook Group</span></a> | 
+            <a href="http://pastebin.com/EpzCE3m9" target="_blank"><span id="rules">Reglas</span></a>
+        </div>
+    </div>
+
+</body>
+</html>
