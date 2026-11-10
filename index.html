@@ -14,35 +14,29 @@
 
         * {
             text-decoration: none !important;
+            box-sizing: border-box;
         }
 
-        /* Panel principal centrado en la parte inferior */
+        /* Contenedor tipo píldora, compacto y centrado */
         #com {
             position: fixed;
-            background: rgba(30, 40, 60, 0.65); 
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            height: 105px;
-            width: 340px;
-            /* MAGIA PARA CENTRARLO */
+            background: linear-gradient(135deg, rgba(66, 112, 168, 0.85) 0%, rgba(44, 74, 110, 0.85) 100%);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            
+            width: 310px;
+            height: 54px;
+            padding: 8px 12px;
+            border-radius: 30px; 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            
             left: 50%;
             transform: translateX(-50%);
-            bottom: 15px; /* Zona clickeable de xat */
-            border-radius: 20px; 
-            border: 1px solid rgba(255, 255, 255, 0.15); 
-            text-align: center;
-            box-sizing: border-box;
-            padding: 12px 15px;
+            bottom: 15px; 
+            
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); 
             z-index: 9999;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); 
-            transition: all 0.3s ease;
             pointer-events: auto; 
-        }
-
-        /* Efecto al pasar el ratón por el panel */
-        #com:hover {
-            transform: translateX(-50%) translateY(-5px); 
-            background: rgba(30, 40, 60, 0.85); 
         }
 
         /* Reproductor de Audio */
@@ -51,54 +45,16 @@
             height: 38px;
             display: block;
             outline: none;
-            filter: invert(1) hue-rotate(180deg) brightness(1.2);
             border-radius: 20px;
-            margin-bottom: 8px;
-            pointer-events: auto;
+            
+            filter: invert(1) hue-rotate(180deg) brightness(1.2);
+            transition: all 0.3s ease;
         }
 
-        /* Contenedor del texto animado */
-        .slider-container {
-            position: relative;
-            height: 25px;
-            width: 100%;
-            overflow: hidden;
-            margin-top: 5px;
-        }
-
-        /* Estilo de los textos animados */
-        .slider-item {
-            position: absolute;
-            width: 100%;
-            left: 0;
-            top: 0;
-            opacity: 0;
-            /* Animación de 9 segundos en bucle */
-            animation: fadeSlide 9s infinite;
-            font: bold 1.1em 'Trebuchet MS', Arial, sans-serif;
-            color: #FFF;
-            text-shadow: 0 0 5px rgba(255,255,255,0.3);
-            pointer-events: auto;
-            transition: text-shadow 0.3s ease;
-        }
-
-        /* Efecto al pasar el ratón por los enlaces */
-        .slider-item:hover {
-            text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.5);
-        }
-
-        /* Retrasos para que aparezcan uno tras otro */
-        .slider-item:nth-child(1) { animation-delay: 0s; }
-        .slider-item:nth-child(2) { animation-delay: 3s; }
-        .slider-item:nth-child(3) { animation-delay: 6s; }
-
-        /* La animación: Aparece desde abajo, se mantiene, y se va hacia arriba */
-        @keyframes fadeSlide {
-            0% { opacity: 0; transform: translateY(15px); }
-            10% { opacity: 1; transform: translateY(0); }
-            30% { opacity: 1; transform: translateY(0); }
-            40% { opacity: 0; transform: translateY(-15px); }
-            100% { opacity: 0; transform: translateY(15px); }
+        /* Efecto decorativo al pasar el mouse */
+        audio:hover {
+            filter: invert(1) hue-rotate(180deg) brightness(1.5) drop-shadow(0 0 8px rgba(0, 255, 255, 0.8));
+            transform: scale(1.02);
         }
     </style>
 </head>
@@ -106,15 +62,10 @@
 
     <div id="com">
         <audio controls autoplay>
-            <source src="http://192.99.14.225:9862/;s.mp3" type="audio/mpeg">
+            <!-- URL actualizada aquí -->
+            <source src="https://radioanime.radioca.st/stream" type="audio/mpeg">
+            Tu navegador no soporta el elemento de audio.
         </audio>
-        
-        <!-- Contenedor con los textos que rotan -->
-        <div class="slider-container">
-            <a href="http://www.facebook.com/groups/juegoslanx" target="_blank" class="slider-item">Facebook Group</a>
-            <a href="http://pastebin.com/EpzCE3m9" target="_blank" class="slider-item">Reglas</a>
-            <span class="slider-item">¡Únete a la diversión!</span>
-        </div>
     </div>
 
 </body>
